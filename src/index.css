@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@300;400;600;700&family=Inter:wght@300;400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --gold: #b8954a;
+  --gold-faded: #8a7240;
+  --red-blood: #8b1a1a;
+  --red-bright: #c02020;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0a0a0a;
+  font-family: 'Inter', sans-serif;
+}
+
+.font-display {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.04em;
+}
+
+.font-heading {
+  font-family: 'Oswald', sans-serif;
+}
+
+.text-gold {
+  color: var(--gold);
+}
+
+.text-gold-faded {
+  color: var(--gold-faded);
+}
+
+.bg-blood-red {
+  background-color: var(--red-blood);
+}
+
+.border-gold {
+  border-color: var(--gold);
+}
+
+/* Flicker animation for hero text */
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  45% { opacity: 0.85; }
+  50% { opacity: 0.6; }
+  55% { opacity: 0.9; }
+}
+
+.flicker {
+  animation: flicker 4s infinite;
+}
+
+/* Slow fade-in */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-up {
+  animation: fadeUp 0.8s ease-out forwards;
+}
+
+/* Pulsing ember glow */
+@keyframes emberGlow {
+  0%, 100% { text-shadow: 0 0 8px rgba(184,149,74,0.3), 0 0 20px rgba(139,26,26,0.2); }
+  50% { text-shadow: 0 0 16px rgba(184,149,74,0.5), 0 0 40px rgba(192,32,32,0.3); }
+}
+
+.ember-glow {
+  animation: emberGlow 3s ease-in-out infinite;
+}
+
+/* Grunge texture overlay */
+.grunge {
+  position: relative;
+}
+
+.grunge::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Scan line effect */
+.scanlines::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.15) 2px,
+    rgba(0,0,0,0.15) 4px
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Vinyl spin */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.vinyl-spin {
+  animation: spin 20s linear infinite;
+}
+
+/* Gradient text */
+.gold-gradient {
+  background: linear-gradient(135deg, #d4af6a 0%, #b8954a 40%, #8a7240 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.red-gradient {
+  background: linear-gradient(135deg, #c02020 0%, #8b1a1a 60%, #5a0e0e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
